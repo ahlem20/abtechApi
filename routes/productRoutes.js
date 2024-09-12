@@ -17,6 +17,8 @@ router.get('/lists2', productController.listAllSells2);
 router.put('/editProduct/:productId', productController.editProduct); // Update product
 router.delete('/deleteProduct/:productId', productController.deleteProduct); // Delete product
 
+router.delete('/deletetransactions', productController.deleteTransactions); // Delete product
+
 
 // Route to edit a transaction
 router.put('/transactions/:transactionId', productController.editTransaction);

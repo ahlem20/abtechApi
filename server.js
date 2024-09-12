@@ -20,7 +20,12 @@ connectDB()
 
 app.use(logger)
 
-app.use(cors(corsOptions))
+
+// Apply the CORS middleware
+app.use(cors(corsOptions));
+
+// Explicitly handle preflight OPTIONS requests
+app.options('*', cors(corsOptions));
 
 app.use(express.json())
 

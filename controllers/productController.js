@@ -287,3 +287,15 @@ exports.deleteTransaction = async (req, res) => {
     res.status(400).json({ message: 'Error deleting transaction', error });
   }
 };
+
+// Delete All Transactions
+exports.deleteTransactions = async (req, res) => {
+  try {
+    // Delete all transactions
+    await Transaction.deleteMany({});
+
+    res.status(200).json({ message: 'All transactions deleted successfully' });
+  } catch (error) {
+    res.status(400).json({ message: 'Error deleting transactions', error });
+  }
+};
