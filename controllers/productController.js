@@ -3,7 +3,7 @@ const Transaction = require('../models/Transaction');
 // Add Product
 exports.addProduct = async (req, res) => {
   try {
-    const { productId, name, quantity, priceBuy, priceSell, storname } = req.body;
+    const { productId, name, quantity, priceBuy, priceSell, storname,description } = req.body;
 
     // Check if a product with the same productId and storname already exists
     const existingProduct = await Product.findOne({ productId, storname });
@@ -13,7 +13,7 @@ exports.addProduct = async (req, res) => {
     }
 
     // If no existing product, create and save the new product
-    const product = new Product({ productId, name, quantity, priceBuy, priceSell, storname });
+    const product = new Product({ productId, name, quantity, priceBuy, priceSell, storname,description });
     await product.save();
 
     res.status(201).json({ message: 'Product added successfully', product });
